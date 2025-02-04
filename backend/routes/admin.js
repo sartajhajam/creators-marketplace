@@ -10,4 +10,3 @@ router.get("/gig-stats", auth, adminAuth, getGigStats)
 router.get("/order-stats", auth, adminAuth, getOrderStats)
 
 module.exports = router
-
