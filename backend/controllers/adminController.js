@@ -1,4 +1,4 @@
-const User = require("../models/user")
+const User = require("../routes/users")
 const Gig = require("../models/Gig")
 const Order = require("../models/Order")
 

@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const auth = require("../middleware/auth")
+const auth = require("../middleware/auth"); // Ensure this path is correct
+
 const adminAuth = require("../middleware/adminAuth")
 const { getUserStats, getGigStats, getOrderStats } = require("../controllers/adminController")
 

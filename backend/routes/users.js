@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
     ],
     twoFactorEnabled: { type: Boolean, default: false },
     twoFactorSecret: String,
-    googleId: String,
+    googleId: String,   
     facebookId: String,
   },
   { timestamps: true },
