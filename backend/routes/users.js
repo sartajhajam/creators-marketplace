@@ -1,14 +1,20 @@
 const express = require("express")
 const router = express.Router()
-const auth = require("./auth")
+const auth = require("../middleware/auth")
 const User = require("../models/Users")
 const { check, validationResult } = require("express-validator")
 
+/**
+ * User Routes
+ * Handles user profile management and retrieval
+ */
+
 // @route   GET api/users/profile
-// @desc    Get user profile
+// @desc    Get current user's profile
 // @access  Private
 router.get("/profile", auth, async (req, res) => {
   try {
+    // Find user by ID from auth middleware, exclude password
     const user = await User.findById(req.user.id).select("-password")
     if (!user) {
       return res.status(404).json({ msg: "User not found" })
@@ -25,8 +31,16 @@ router.get("/profile", auth, async (req, res) => {
 // @access  Private
 router.put(
   "/profile",
-  [auth, [check("name", "Name is required").not().isEmpty(), check("email", "Please include a valid email").isEmail()]],
+  [
+    auth, 
+    [
+      // Validation middleware
+      check("name", "Name is required").not().isEmpty(),
+      check("email", "Please include a valid email").isEmail()
+    ]
+  ],
   async (req, res) => {
+    // Check for validation errors
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() })
@@ -36,11 +50,11 @@ router.put(
 
     try {
       const user = await User.findById(req.user.id)
-
       if (!user) {
         return res.status(404).json({ msg: "User not found" })
       }
 
+      // Update user fields
       user.name = name
       user.email = email
       user.bio = bio
@@ -48,13 +62,12 @@ router.put(
       user.portfolio = portfolio
 
       await user.save()
-
       res.json(user)
     } catch (err) {
       console.error(err.message)
       res.status(500).send("Server Error")
     }
-  },
+  }
 )
 
 // @route   GET api/users/:id
