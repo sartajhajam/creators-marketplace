@@ -2,7 +2,7 @@
 A Fiverr-like platform where creatores can offer services and brands can hire them.
 
 ## 🚀 Tech Stack
-- **Frontend:** React.js (Next.js for SEO)
+- **Frontend:** React.js 
 - **Backend:** Node.js (Express.js)
 - **Database:** MongoDB (Mongoose ORM)
 - **Authentication:** JWT / OAuth (Google, Facebook, Email)

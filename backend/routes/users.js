@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const auth = require("./auth")
-const User = require("../models/User")
+const User = require("../models/Users")
 const { check, validationResult } = require("express-validator")
 
 // @route   GET api/users/profile
