@@ -1,5 +1,14 @@
 const Message = require("../models/Message")
 
+/**
+ * Controller for handling messaging functionality
+ */
+
+/**
+ * Send a new message
+ * @param {Object} req.body - Contains receiverId, content, orderId, and attachments
+ * @param {Object} req.user - Authenticated user sending the message
+ */
 exports.sendMessage = async (req, res) => {
   try {
     const { receiverId, content, orderId, attachments } = req.body
@@ -19,14 +28,20 @@ exports.sendMessage = async (req, res) => {
   }
 }
 
+/**
+ * Get conversation history
+ * @param {string} req.params.userId - ID of the other user in conversation
+ * Retrieves messages between current user and specified user
+ */
 exports.getMessages = async (req, res) => {
   try {
+    // Find messages where either user is sender or receiver
     const messages = await Message.find({
       $or: [
         { sender: req.user.id, receiver: req.params.userId },
         { sender: req.params.userId, receiver: req.user.id },
       ],
-    }).sort({ createdAt: 1 })
+    }).sort({ createdAt: 1 })  // Sort by timestamp ascending
     res.json(messages)
   } catch (err) {
     console.error(err.message)
