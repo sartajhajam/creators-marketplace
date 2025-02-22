@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #F9FAFB;
+}
+
 @layer base {
   html {
     font-family: "Inter", system-ui, sans-serif;
