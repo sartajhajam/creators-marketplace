@@ -19,7 +19,7 @@ function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Company Info */}
         <div>
-          <h3 className="text-xl font-bold text-gray-900 mb-4">CreatorsHub</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Creators Marketplace</h3>
           <p className="text-gray-600 mb-4">
             Connecting creative talent with brands looking for innovative solutions.
           </p>

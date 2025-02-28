@@ -1,6 +1,6 @@
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
-
+import CallToAction from './components/CallToAction';
 function App() {
   return (
     <div className="min-h-screen bg-white">
@@ -22,7 +22,7 @@ function App() {
         {/* <Categories /> */}
         
         {/* Call to Action Section */}
-        {/* <CallToAction /> */}
+        <CallToAction />
         
         {/* Footer */}
         <Footer />
