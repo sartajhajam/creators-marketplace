@@ -3,7 +3,8 @@ import Footer from './components/Footer';
 import Categories from './components/Categories';
 import CallToAction from './components/CallToAction';
 import Hero from './components/Hero';
-
+import FeaturedCreators from './components/FeaturedCreators';
+import HowItWorks from './components/HowItWorks';
 function App() {
   return (
     <div className="min-h-screen bg-white">
@@ -16,10 +17,10 @@ function App() {
         <Hero />
         
         {/* Featured Creators Section */}
-        {/* <FeaturedCreators /> */}
+        <FeaturedCreators />
         
         {/* How It Works Section */}
-        {/* <HowItWorks /> */}
+        <HowItWorks />
         
         {/* Creative Categories Section */}
         <Categories />
