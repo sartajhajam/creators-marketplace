@@ -1,6 +1,9 @@
 import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
+import Categories from './components/Categories';
 import CallToAction from './components/CallToAction';
+import Hero from './components/Hero';
+
 function App() {
   return (
     <div className="min-h-screen bg-white">
@@ -10,7 +13,7 @@ function App() {
         <Navbar />
         
         {/* Hero Section */}
-        {/* <Hero /> */}
+        <Hero />
         
         {/* Featured Creators Section */}
         {/* <FeaturedCreators /> */}
@@ -19,7 +22,7 @@ function App() {
         {/* <HowItWorks /> */}
         
         {/* Creative Categories Section */}
-        {/* <Categories /> */}
+        <Categories />
         
         {/* Call to Action Section */}
         <CallToAction />
