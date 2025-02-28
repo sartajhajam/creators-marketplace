@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Hero Component
@@ -11,6 +12,18 @@ import React from 'react';
  * - Hero image
  */
 function Hero() {
+  const navigate = useNavigate();
+
+  // Function to handle navigation to the signup page
+  const handleJoinAsCreator = () => {
+    navigate('/signup');
+  };
+
+  // Function to handle navigation to the login page
+  const handleFindCreator = () => {
+    navigate('/login');
+  };
+
   return (
     <section className="py-12 md:py-16 lg:py-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -23,10 +36,16 @@ function Hero() {
             Join thousands of creators and brands making meaningful connections and creating amazing projects together on our platform.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <button className="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-colors">
+            <button 
+              onClick={handleJoinAsCreator}
+              className="px-6 py-3 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-colors"
+            >
               Join as Creator
             </button>
-            <button className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 transition-colors">
+            <button 
+              onClick={handleFindCreator}
+              className="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-md hover:bg-gray-50 transition-colors"
+            >
               Find Creator
             </button>
           </div>

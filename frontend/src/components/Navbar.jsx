@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Search, LogIn } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Navbar Component
@@ -15,10 +16,31 @@ import { Menu, X, Search, LogIn } from 'lucide-react';
 function Navbar() {
   // State to manage mobile menu visibility
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(''); // State to hold the current value of the search input
+  const navigate = useNavigate();
 
   // Toggle mobile menu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  // Function to handle navigation to the login page
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  // Function to handle navigation to the signup page
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
+  // Function to handle search submission
+  const handleSearchSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+    if (searchQuery.trim()) { // Check if the search query is not empty
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`); // Navigate to the search results page with the query
+      setSearchQuery(''); // Clear the search input after submission
+    }
   };
 
   return (
@@ -49,19 +71,34 @@ function Navbar() {
 
         {/* Search and Auth Buttons (Desktop) */}
         <div className="hidden md:flex items-center space-x-4">
-          {/* Search Button */}
-          <button className="p-2 rounded-full hover:bg-gray-100">
-            <Search size={20} />
-          </button>
-          
+          {/* Search Form */}
+          <form onSubmit={handleSearchSubmit} className="relative"> {/* Form to handle search input */}
+            <input
+              type="text"
+              placeholder="Search creators..." // Placeholder text for the search input
+              value={searchQuery} // Controlled input value tied to state
+              onChange={(e) => setSearchQuery(e.target.value)} // Update state on input change
+              className="pl-10 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            />
+            <button type="submit" className="absolute inset-y-0 left-0 pl-3 flex items-center">
+              <Search size={20} className="text-gray-400" /> {/* Search icon inside the input */}
+            </button>
+          </form>
+
           {/* Login Button */}
-          <button className="flex items-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
+          <button 
+            onClick={handleLogin}
+            className="flex items-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+          >
             <LogIn size={18} className="mr-2" />
             Log In
           </button>
           
           {/* Sign Up Button */}
-          <button className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800">
+          <button 
+            onClick={handleSignUp}
+            className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+          >
             Sign Up
           </button>
         </div>
@@ -109,11 +146,17 @@ function Navbar() {
           
           {/* Mobile Auth Buttons */}
           <div className="mt-3 px-3 space-y-2">
-            <button className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50">
+            <button 
+              onClick={handleLogin}
+              className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+            >
               <LogIn size={18} className="mr-2" />
               Log In
             </button>
-            <button className="w-full px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800">
+            <button 
+              onClick={handleSignUp}
+              className="w-full px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+            >
               Sign Up
             </button>
           </div>
