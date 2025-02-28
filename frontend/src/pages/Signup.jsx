@@ -149,7 +149,7 @@ function Signup() {
         <div className="p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900">Create an Account</h2>
-            <p className="mt-2 text-gray-600">Join the CreatorsHub community</p>
+            <p className="mt-2 text-gray-600">Join the Creator Marketplace Community</p>
           </div>
           
           {/* General Error Message */}

@@ -16,6 +16,7 @@ import { jwtDecode } from 'jwt-decode';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+
   // State for user and loading status
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -64,7 +65,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     try {
       // Example API call to backend
-      const response = await fetch('https://api.example.com/auth/login', {
+      const response = await fetch('http://localhost:3005/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +107,7 @@ export const AuthProvider = ({ children }) => {
   const signup = async (userData) => {
     try {
       // Example API call to backend
-      const response = await fetch('https://api.example.com/auth/signup', {
+      const response = await fetch('http://localhost:3005/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +152,7 @@ export const AuthProvider = ({ children }) => {
       // and handle the callback with a token exchange
       
       // For demonstration purposes, we'll simulate a successful OAuth login
-      const response = await fetch(`https://api.example.com/auth/${provider}`, {
+      const response = await fetch(`http://localhost:3005/api/auth/${provider}`, {
         method: 'GET',
         credentials: 'include', // Important for OAuth flows
       });
