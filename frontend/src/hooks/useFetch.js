@@ -10,7 +10,7 @@ function useFetch(fetchFunction, dependencies = []) {
   // Initialize state
   const [state, setState] = useState({
     data: null,
-    loading: true,
+    loading: true, 
     error: null,
   });
 
