@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { BarChart, CheckCircle, DollarSign, Star } from 'lucide-react';
 
 // Components
-import Sidebar from '../components/Sidebar';
-import SearchBar from '../components/SearchBar';
-import StatsCard from '../components/StatsCard';
-import SectionHeader from '../components/SectionHeader';
-import ActivityItem from '../components/ActivityItem';
-import OrderItem from '../components/OrderItem';
-import GigCard from '../components/GigCard';
-import StatsList from '../components/StatsList';
+import Sidebar from '../components/creatorComp/Sidebar';
+import SearchBar from '../components/creatorComp/SearchBar';
+import StatsCard from '../components/creatorComp/StatsCard';
+import SectionHeader from '../components/creatorComp/SectionHeader';
+import ActivityItem from '../components/creatorComp/ActivityItem';
+import OrderItem from '../components/creatorComp/OrderItem';
+import GigCard from '../components/creatorComp/GigCard';
+import StatsList from '../components/creatorComp/StatsList';
 
 // Hooks and Services
 import useFetch from '../hooks/useFetch';
