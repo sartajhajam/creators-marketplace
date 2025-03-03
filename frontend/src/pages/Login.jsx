@@ -60,8 +60,8 @@ function Login() {
       });
       
       if (result.success) {
-        // Redirect to home page or dashboard
-        navigate('/');
+        // Redirect to dashboard page
+        navigate('/dashboard');
       } else {
         setError(result.error || 'Login failed. Please check your credentials.');
       }

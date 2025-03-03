@@ -89,6 +89,7 @@ function Navbar() {
           <button 
             onClick={handleLogin}
             className="flex items-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+            style={{ cursor: 'pointer' }}
           >
             <LogIn size={18} className="mr-2" />
             Log In
@@ -98,6 +99,7 @@ function Navbar() {
           <button 
             onClick={handleSignUp}
             className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+            style={{ cursor: 'pointer' }}
           >
             Sign Up
           </button>
@@ -149,6 +151,7 @@ function Navbar() {
             <button 
               onClick={handleLogin}
               className="w-full flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50"
+              style={{ cursor: 'pointer' }}
             >
               <LogIn size={18} className="mr-2" />
               Log In
@@ -156,6 +159,7 @@ function Navbar() {
             <button 
               onClick={handleSignUp}
               className="w-full px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800"
+              style={{ cursor: 'pointer' }}
             >
               Sign Up
             </button>

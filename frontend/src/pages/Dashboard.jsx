@@ -25,7 +25,7 @@ import { useAuth } from '../context/AuthContext';
  * @returns {JSX.Element} Dashboard page
  */
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   
   // Fetch dashboard data using custom hook
   const { 
@@ -171,8 +171,14 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
         {/* Top Bar */}
-        <div className="p-6 border-b border-gray-200 bg-white">
+        <div className="p-6 border-b border-gray-200 bg-white flex justify-between items-center">
           <SearchBar />
+          <button 
+            onClick={logout} 
+            className="text-red-600 hover:text-red-800"
+          >
+            Logout
+          </button>
         </div>
 
         {/* Dashboard Content */}
