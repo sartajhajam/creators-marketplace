@@ -9,9 +9,10 @@ import { Link } from 'react-router-dom';
  * @param {string} props.user.name - User's name
  * @param {string} props.user.role - User's role
  * @param {string} props.user.avatar - URL to user's avatar image
+ * @param {Function} props.logout - Function to log out the user
  * @returns {JSX.Element} Sidebar component
  */
-const Sidebar = ({ user }) => {
+const Sidebar = ({ user, logout }) => {
   return (
     <div className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
       {/* Logo */}
@@ -80,7 +81,11 @@ const Sidebar = ({ user }) => {
 
       {/* Logout */}
       <div className="p-4 border-t border-gray-200">
-        <button className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 text-gray-700 font-medium w-full">
+        <button 
+          onClick={logout} 
+          className="flex items-center space-x-3 p-2 rounded-md hover:bg-gray-100 text-gray-700 font-medium w-full"
+          style={{ cursor: 'pointer' }}
+        >
           <LogOut size={20} />
           <span>Logout</span>
         </button>
