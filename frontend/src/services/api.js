@@ -61,21 +61,21 @@ export const userAPI = {
 };
 
 /** Dashboard API */
-export const dashboardAPI = {
+export const dashboardService = {
   getStats: () => api.get('/dashboard/stats'),
   getActivities: (limit = 5) => api.get(`/dashboard/activities?limit=${limit}`),
   getQuickStats: () => api.get('/dashboard/quick-stats'),
 };
 
 /** Orders API */
-export const orderAPI = {
+export const orderService = {
   getActiveOrders: () => api.get('/orders/active'),
   getOrderDetails: (orderId) => api.get(`/orders/${orderId}`),
   updateOrderStatus: (orderId, status) => api.put(`/orders/${orderId}/status`, { status }),
 };
 
 /** Gigs API */
-export const gigAPI = {
+export const gigService = {
   getUserGigs: () => api.get('/gigs/user'),
   getRecommendedGigs: (limit = 3) => api.get(`/gigs/recommended?limit=${limit}`),
   createGig: (gigData) => api.post('/gigs', gigData),
@@ -83,7 +83,7 @@ export const gigAPI = {
 };
 
 /** Messaging API */
-export const messageAPI = {
+export const messageService = {
   getConversations: () => api.get('/messages/conversations'),
   getMessages: (conversationId) => api.get(`/messages/conversations/${conversationId}`),
   sendMessage: (conversationId, content) => api.post(`/messages/conversations/${conversationId}`, { content }),

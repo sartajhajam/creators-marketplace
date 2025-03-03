@@ -40,3 +40,5 @@ app.use("/api/admin", require("./routes/admin"))
 const PORT = process.env.PORT || 3005
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
+
+app.use(cors({ origin: 'http://localhost:5173', credentials: true })); // Change 5173 if your frontend uses a different port

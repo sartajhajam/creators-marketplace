@@ -16,6 +16,10 @@ import useFetch from '../hooks/useFetch';
 import { dashboardService, orderService, gigService } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
+
+// Dashboard 
+
+
 /**
  * Dashboard page component
  * @returns {JSX.Element} Dashboard page
