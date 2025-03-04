@@ -1,31 +1,54 @@
+import React from 'react';
+
 /**
- * StatsCard Component
- *
- * Displays a statistics card with title, value, and change indicator
- *
+ * StatsCard component
+ * Displays a statistic with icon and optional growth indicator
+ * 
  * @param {Object} props - Component props
  * @param {string} props.title - Card title
- * @param {string|number} props.value - Main value to display
- * @param {number} props.percentageChange - Percentage change (positive or negative)
- * @param {React.ReactNode} props.icon - Optional icon to display
- * @returns {JSX.Element} Stats card component
+ * @param {React.ReactNode} props.icon - Icon component
+ * @param {string|number} props.value - Main statistic value
+ * @param {number} [props.percentageChange] - Optional percentage change
+ * @param {string} [props.additionalInfo] - Optional additional information
  */
-const StatsCard = ({ title, value, percentageChange, icon }) => {
+const StatsCard = ({ 
+  title, 
+  icon, 
+  value, 
+  percentageChange, 
+  additionalInfo 
+}) => {
   return (
-    <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
-      <div className="flex items-center justify-between mb-2">
-        <h3 className="text-lg font-medium text-gray-900">{title}</h3>
-        {icon && <div className="text-gray-400">{icon}</div>}
+    <div className="bg-white overflow-hidden shadow rounded-lg">
+      <div className="px-4 py-5 sm:p-6">
+        <div className="flex items-center">
+          <div className="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+            {icon}
+          </div>
+          <div className="ml-5 w-0 flex-1">
+            <dl>
+              <dt className="text-sm font-medium text-gray-500 truncate">{title}</dt>
+              <dd>
+                <div className="flex items-baseline">
+                  <div className="text-2xl font-semibold text-gray-900">{value}</div>
+                  {percentageChange && (
+                    <div className="ml-2 flex items-baseline text-sm font-semibold text-green-600">
+                      <span>↑ {percentageChange}% from last month</span>
+                    </div>
+                  )}
+                  {additionalInfo && (
+                    <div className="ml-2 text-sm text-gray-500">
+                      {additionalInfo}
+                    </div>
+                  )}
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
       </div>
-      <p className="text-3xl font-bold">{value}</p>
-      {percentageChange !== undefined && (
-        <p className={`text-sm ${percentageChange >= 0 ? "text-green-600" : "text-red-600"} mt-1`}>
-          {percentageChange >= 0 ? "↑" : "↓"} {Math.abs(percentageChange)}% from last month
-        </p>
-      )}
     </div>
-  )
-}
+  );
+};
 
-export default StatsCard
-
+export default StatsCard;
